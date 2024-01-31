@@ -1,0 +1,38 @@
+[
+  {
+    "id" : 1,
+    "matricule" : "081i22",
+    "nom":"andriamandimbison",
+    "prenom" : "Ruta Mickael",
+    "dateNaiss" : "",
+    "mention" : "DA2I",
+    "niveau" : "L3"
+  },
+  {
+    "id" : 2,
+    "matricule" : "081i22",
+    "nom":"andriamandimbison",
+    "prenom" : "Ruta Mickael",
+    "dateNaiss" : "",
+    "mention" : "DA2I",
+    "niveau" : "L3"
+  },
+  {
+    "id" : 3,
+    "matricule" : "081i22",
+    "nom":"andriamandimbison",
+    "prenom" : "Ruta Mickael",
+    "dateNaiss" : "",
+    "mention" : "DA2I",
+    "niveau" : "L3"
+  },
+  {
+    "id" : 4,
+    "matricule" : "081i22",
+    "nom":"andriamandimbison",
+    "prenom" : "Ruta Mickael",
+    "dateNaiss" : "",
+    "mention" : "DA2I",
+    "niveau" : "L3"
+  }
+]

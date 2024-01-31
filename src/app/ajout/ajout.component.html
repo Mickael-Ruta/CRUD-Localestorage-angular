@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col xl4 offset-xl4 z-depth-1" style="margin-top: 15px; border-radius:15px">
+    <div class="col xl12 center">
+      <h4 class="blue-text">{{formTitle}} un etudiant</h4>
+    </div>
+    <form action="" [formGroup]="form" (submit)="modif ? update() : addData()">
+      <div class="input-field col xl10 offset-xl1">
+        <label for="num" class="active">N° matricule</label>
+        <input type="text" name="" id="num" formControlName="matricule" placeholder="Entre">
+      </div>
+      <div class="input-field col xl10 offset-xl1" >
+        <label for="nom" class="active">Nom</label>
+        <input type="text" name="" id="" formControlName="nom" placeholder="Entre">
+      </div>
+      <div class="input-field col xl10 offset-xl1">
+        <label for="prenom" class="active">Prenoms</label>
+        <input type="text" name="" id="" formControlName="prenoms" placeholder="Entre">
+      </div>
+      <div class="input-field col xl10 offset-xl1">
+        <input type="date" name="" id="" formControlName="dateNaiss" placeholder="Entre">
+      </div>
+      <div class="input-field col xl5 offset-xl1">
+        <select name="mention" id="" formControlName="mention">
+          <option value="DA2I">DA2I</option>
+          <option value="RPM">RPM</option>
+          <option value="AES">AES</option>
+        </select>
+      </div>
+      <div class="input-field col xl5 ">
+        <select name="niveau" id="" formControlName="niveau">
+          <option value="L1">L1</option>
+          <option value="L2">L2</option>
+          <option value="L3">L3</option>
+        </select>
+      </div>
+      <div class="col xl7 offset-xl4 center pull-xl1" style="margin-bottom:15px ;">
+        <button type="submit" class="btn blue" >{{btnTitle}}</button>
+        <button type="reset" class="btn red darken-4" style="margin: 0px 3px;">Annuler</button>
+      </div>
+    </form>
+  </div>
+
+</div>
+
