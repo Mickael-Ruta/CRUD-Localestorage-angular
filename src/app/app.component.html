@@ -2,12 +2,19 @@
   <nav class="nav-wrapper blue">
     <div class="container">
       <a class="brand-logo left"><b>GESTION DES ETUDIANTS</b></a>
-      <ul class="right ">
-        <li class="white-text"><a [routerLink]="['/liste']" routerLinkActive="router-link-active" ><b>Listes</b></a></li>
-        <li class="white-text"><a [routerLink]="['/ajout']" routerLinkActive="router-link-active" ><b>Ajout</b></a></li>
+      <ul class="right">
+        <li class="white-text">
+          <a [routerLink]="['/liste']" routerLinkActive="router-link-active"
+            ><b>Listes</b></a
+          >
+        </li>
+        <li class="white-text">
+          <a [routerLink]="['/ajout']" routerLinkActive="router-link-active"
+            ><b>Ajout</b></a
+          >
+        </li>
       </ul>
     </div>
   </nav>
 </div>
 <router-outlet></router-outlet>
-

@@ -1,72 +1,128 @@
 <div class="row">
-  <div class="col xl8 offset-xl2" style="margin-bottom: 0px;">
+  <div class="col xl8 offset-xl2" style="margin-bottom: 0px">
     <h4 class="blue-text center">
-     <b> Listes des etudiants</b>
+      <b> Listes des etudiants</b>
     </h4>
   </div>
-  <div class="col xl8 offset-xl2 z-depth-1" style="margin-top: 10px;">
+  <div class="col xl8 offset-xl2">
+    <input
+      type="text"
+      name=""
+      id=""
+      class="input-field col xl4 search"
+      [(ngModel)]="EtudiantFilter"
+      placeholder="Recherche "
+    />
+    <div
+      class="col xl1 pull-xl1 center"
+      style="
+        height: 46px;
+        padding-top: 8px;
+        border-radius: 5px;
+        line-height: center;
+      "
+    >
+      <i class="fa fa-search grey-text" style="font-size: 25px"></i>
+    </div>
+  </div>
+  <div class="col xl8 offset-xl2 z-depth-1" style="margin-top: 10px">
     <table class="highlight responsive-table">
       <thead>
         <tr>
-            <th class="center">N°</th>
-            <th class="center">Nom</th>
-            <th class="center">Prenoms</th>
-            <th class="center">Date de naissance</th>
-            <th class="center">Mention</th>
-            <th class="center">Niveau</th>
-            <th class="center">Action</th>
+          <th class="center">N°</th>
+          <th class="center">Nom</th>
+          <th class="center">Prenoms</th>
+          <th class="center">Date de naissance</th>
+          <th class="center">Mention</th>
+          <th class="center">Niveau</th>
+          <th class="center">Action</th>
         </tr>
       </thead>
-
-      <tbody >
-        @for (item of data; track item.matricule) {
-          <tr  >
-            <td class="center">{{item.matricule}}</td>
-            <td class="center"> {{item.nom | uppercase}}</td>
-            <td class="center">{{item.prenoms | titlecase}}</td>
-            <td class="center">{{item.dateNaiss | date }}</td>
-            <td class="center">{{item.mention}}</td>
-            <td class="center">{{item.niveau}}</td>
-            <td class="center">
-              <a (click)="open(item)" class=" btn-floating btn-small waves-effect waves-blue lighten-1 white modal-trigger" data-target="modal2"><i class="fa fa-info blue-text" style="margin-right: 5px;"></i></a>
-              <a [routerLink]="['/liste',item.matricule,'edit']" routerLinkActive="router-link-active" class=" btn btn-floating btn-small  waves-effect waves-green lighten-1 white" style="margin:0px 5px;"><i class="fa fa-pencil green-text" ></i></a>
-              <a (click)="open(item)" class=" btn-floating btn-small waves-effect waves-red white modal-trigger delete" data-target="modal1"><i class="fa fa-close red-text"></i></a>
-            </td>
-          </tr>
-        }
+      <tbody>
+        @if (data) { @for (item of filteredEtu; track item.matricule) {
+        <tr>
+          <td class="center">{{ item.matricule }}</td>
+          <td class="center">{{ item.nom | uppercase }}</td>
+          <td class="center">{{ item.prenoms | titlecase }}</td>
+          <td class="center">{{ item.dateNaiss | date }}</td>
+          <td class="center">{{ item.mention }}</td>
+          <td class="center">{{ item.niveau }}</td>
+          <td class="center">
+            <a
+              (click)="open(item)"
+              class="btn-floating btn-small waves-effect waves-blue lighten-1 white modal-trigger"
+              data-target="modal2"
+              ><i class="fa fa-info blue-text" style="margin-right: 5px"></i
+            ></a>
+            <a
+              [routerLink]="['/liste', item.matricule, 'edit']"
+              routerLinkActive="router-link-active"
+              class="btn btn-floating btn-small waves-effect waves-green lighten-1 white"
+              style="margin: 0px 5px"
+              ><i class="fa fa-pencil green-text"></i
+            ></a>
+            <a
+              (click)="open(item)"
+              class="btn-floating btn-small waves-effect waves-red white modal-trigger delete"
+              data-target="modal1"
+              ><i class="fa fa-close red-text"></i
+            ></a>
+          </td>
+        </tr>
+        } }
       </tbody>
     </table>
   </div>
 </div>
 <div class="row">
-  <div class="modal col xl4 offset-xl4" id="modal2" style="height: 350px !important;border-radius:10px">
-    <h5 class="blue-text center" style="margin-bottom: 0px !important;">
+  <div
+    class="modal col xl4 offset-xl4"
+    id="modal2"
+    style="height: 350px !important; border-radius: 10px"
+  >
+    <h5 class="blue-text center" style="margin-bottom: 0px !important">
       Information sur l'etudiant
     </h5>
     @if (selecteditems) {
-      <div class="modal-content" style="margin: 0px 0px ;">
-        <p><b>N° matricule : </b>{{selecteditems.matricule}}</p>
-        <p><b>Nom : </b>{{selecteditems.nom}}</p>
-        <p><b>Prenoms : </b>{{selecteditems.prenoms}}</p>
-        <p><b>Date de naissance : </b>{{selecteditems.dateNaiss}}</p>
-        <p><b>Mention: </b>{{selecteditems.mention}}</p>
-        <p><b>Niveau : </b>{{selecteditems.niveau}}</p>
-      </div>
+    <div class="modal-content" style="margin: 0px 0px">
+      <p><b>N° matricule : </b>{{ selecteditems.matricule }}</p>
+      <p><b>Nom : </b>{{ selecteditems.nom }}</p>
+      <p><b>Prenoms : </b>{{ selecteditems.prenoms }}</p>
+      <p><b>Date de naissance : </b>{{ selecteditems.dateNaiss }}</p>
+      <p><b>Mention: </b>{{ selecteditems.mention }}</p>
+      <p><b>Niveau : </b>{{ selecteditems.niveau }}</p>
+    </div>
     }
   </div>
-  <div class="modal col xl4 offset-xl4 center" id="modal1" style="border-radius: 5px;">
+  <div
+    class="modal col xl4 offset-xl4 center"
+    id="modal1"
+    style="border-radius: 5px"
+  >
     @if(selecteditems){
-      <div class="modal-content ">
-        <p>Vous voulez vraiment supprimer l'etudiant <b>{{selecteditems.nom | uppercase}} {{selecteditems.prenoms | titlecase}}</b>?</p>
-        <a class="btn btn-small waves-effect waves-green white green-text text-lighten-2" style="margin: 0px 5px ;" (click)="delete(selecteditems)"><b>OUI</b></a>
-        <a class="btn btn-small waves-effect waves-red white red-text text-lighten-2 modal-close"><b>NON</b></a>
-      </div>
+    <div class="modal-content">
+      <p>
+        Vous voulez vraiment supprimer l'etudiant
+        <b
+          >{{ selecteditems.nom | uppercase }}
+          {{ selecteditems.prenoms | titlecase }}</b
+        >?
+      </p>
+      <a
+        class="btn btn-small waves-effect waves-green white green-text text-lighten-2"
+        style="margin: 0px 5px"
+        (click)="delete(selecteditems)"
+        ><b>OUI</b></a
+      >
+      <a
+        class="btn btn-small waves-effect waves-red white red-text text-lighten-2 modal-close"
+        ><b>NON</b></a
+      >
+    </div>
     }
   </div>
 </div>
 
 <pre>
-  {{filtre}}
+  {{ filtre }}
 </pre>
-
-
